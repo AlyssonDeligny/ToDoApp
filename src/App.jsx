@@ -12,12 +12,18 @@ export default function App() {
     const removeTask = (index) => {
         setTasks(tasks.filter((_, i) => i !== index));
     };
+    const editTask = (index, newText) => {
+        const updatedTasks = tasks.map((task, i) =>
+            i === index ? { ...task, text: newText } : task
+        );
+        setTasks(updatedTasks);
+    };
 
     return (
         <div className="app-container">
             <h1 className="app-title"> My App </h1>
             <TodoForm onSubmit={addTask}/>
-            <TodoList tasks={tasks} onDelete={removeTask}/>
+            <TodoList tasks={tasks} onDelete={removeTask} onEdit={editTask}/>
         </div>
     );
 }
