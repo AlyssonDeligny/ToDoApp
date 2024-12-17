@@ -18,12 +18,18 @@ export default function App() {
         );
         setTasks(updatedTasks);
     };
+    const toggleTask = (index) => {
+        const updatedTasks = tasks.map((task, i) =>
+            i === index ? { ...task, completed: !task.completed } : task
+        );
+        setTasks(updatedTasks);
+    };
 
     return (
         <div className="app-container">
             <h1 className="app-title"> My App </h1>
             <TodoForm onSubmit={addTask}/>
-            <TodoList tasks={tasks} onDelete={removeTask} onEdit={editTask}/>
+            <TodoList tasks={tasks} onDelete={removeTask} onEdit={editTask} onToggle={toggleTask}/>
         </div>
     );
 }
