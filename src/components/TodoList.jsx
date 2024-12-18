@@ -7,7 +7,7 @@ export default function TodoList ({tasks, onDelete, onEdit, onToggle}){
 
     return (
       <div>
-        <h1> My Tasks </h1>
+        <h1 className="tasks-title"> My Tasks </h1>
         <ul className="todo-list">
           {tasks.map((task, index) => (
             <li key={index} className="todo-item">
@@ -37,7 +37,7 @@ export default function TodoList ({tasks, onDelete, onEdit, onToggle}){
               )}
 
               {editingIndex === index ? (
-                <button
+                <button className="save-button"
                   onClick={() =>
                     onEdit(index, editValue) & setEditingIndex(null)
                   }
@@ -47,7 +47,7 @@ export default function TodoList ({tasks, onDelete, onEdit, onToggle}){
                 </button>
               ) : (
                 <>
-                  <button
+                  <button className="edit-button"
                     onClick={() =>
                       setEditingIndex(index) & setEditValue(task.text)
                     }
@@ -55,7 +55,7 @@ export default function TodoList ({tasks, onDelete, onEdit, onToggle}){
                     {' '}
                     Edit
                   </button>
-                  <button onClick={() => onDelete(index)}> Delete</button>
+                  <button className="delete-button" onClick={() => onDelete(index)}> Delete</button>
                 </>
               )}
             </li>

@@ -27,7 +27,7 @@ export default function App() {
 
     return (
         <div className="app-container">
-            <h1 className="app-title"> My App </h1>
+            <h1 className="app-title"> To-Do List   </h1>
             <TodoForm onSubmit={addTask}/>
             <TodoList tasks={tasks} onDelete={removeTask} onEdit={editTask} onToggle={toggleTask}/>
         </div>
