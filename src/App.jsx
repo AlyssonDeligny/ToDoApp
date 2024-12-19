@@ -6,7 +6,7 @@ export default function App() {
 
     const [tasks, setTasks] = useState([]);
 
-    function addTask(task) {
+    const addTask = (task) => {
         setTasks([...tasks, { text: task, completed: false }]);
     }
     const removeTask = (index) => {

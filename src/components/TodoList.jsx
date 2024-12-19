@@ -38,21 +38,24 @@ export default function TodoList ({tasks, onDelete, onEdit, onToggle}){
 
               {editingIndex === index ? (
                 <button className="save-button"
-                  onClick={() =>
-                    onEdit(index, editValue) & setEditingIndex(null)
+                  onClick={() => {
+                      onEdit(index, editValue);
+                      setEditingIndex(null);
+                  }
                   }
                 >
-                  {' '}
-                  Save{' '}
+
+                  Save
                 </button>
               ) : (
                 <>
                   <button className="edit-button"
-                    onClick={() =>
-                      setEditingIndex(index) & setEditValue(task.text)
+                    onClick={() => {
+                        setEditingIndex(index);
+                        setEditValue(task.text);
+                    }
                     }
                   >
-                    {' '}
                     Edit
                   </button>
                   <button className="delete-button" onClick={() => onDelete(index)}> Delete</button>
