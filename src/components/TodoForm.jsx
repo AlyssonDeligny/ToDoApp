@@ -6,7 +6,6 @@ export default function TodoForm(props) {
 
     function handleSubmit(event) {
         event.preventDefault();
-        console.log('Nouvelle tâche ajoutée :', inputValue);
         props.onSubmit(inputValue);
         setInputValue("");
     }
